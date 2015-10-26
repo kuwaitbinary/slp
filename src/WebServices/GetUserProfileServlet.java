@@ -51,10 +51,10 @@ public class GetUserProfileServlet extends HttpServlet {
 	private void getUserProfile(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 
-		String userName = request.getParameter("username");
+		String id_trainee = request.getParameter("id_trainee");
 
 		UserProfileDoaImpl userProfileDoa = new UserProfileDoaImpl();
-		Trainee userProfile = userProfileDoa.retriveUserProfile(userName);
+		Trainee userProfile = userProfileDoa.retriveUserProfile(Integer.parseInt(id_trainee));
 
 		JSONObject json = new JSONObject();
 		json.put("message", "success");
