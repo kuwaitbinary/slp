@@ -13,7 +13,15 @@ import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
 
 import DaoImplementation.GetSessionDaoImpl;
+import Model.Active_Session;
+import Model.Course;
+import Model.Location;
 import Model.Reg_Session;
+import Model.Sess_Class;
+import Model.Trainer;
+import Model.Wave;
+import Model.Wave_Date;
+import Model.Zone;
 
 /**
  * Servlet implementation class GetSessionsServlet
@@ -60,11 +68,25 @@ public class GetSessionsServlet extends HttpServlet {
 		for(int i = 0;i<Reg_sessions.size();i++) {
 			
 			JSONObject jsonReport = new JSONObject();
-			Reg_Session e = Reg_sessions.get(i);
+			Reg_Session regSession = Reg_sessions.get(i);
+			Sess_Class sessClass = sessionDao.getSess_Class(regSession.getId_class());
+			Trainer trainer = sessClass.getTrainer();
+			Active_Session activeSession = sessClass.getActive_session();
+			Location location = activeSession.getLocation();
+			Zone zone = sessionDao.getZone(location.getId_zone());
+			Wave wave = activeSession.getWave();
+			Course course = sessionDao.getCourse(wave.getId_course());
+			Wave_Date waveDate = sessionDao.getWaveDate(wave.getId_wave());
 			
-			/*jsonReport.put("id_class", e.getId_class());
-			jsonReport.put("id_trainee", e.getId_trainee());
-			jsonReport.put("id_reg_session", e.getId_reg_session());*/
+			
+			jsonReport.put("class_name", sessClass.getName());
+			jsonReport.put("course_name", course.getName());
+			jsonReport.put("location_name", location.getLocation());
+			jsonReport.put("location_gps", location.getGps());
+			jsonReport.put("zone", zone.getZone());
+			jsonReport.put("trainer_name", trainer.getFirstname() + trainer.getLastname());
+			jsonReport.put("wave_date", waveDate.getDate());
+			
 			
 			
 			result_data.add(jsonReport);

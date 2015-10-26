@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
   
-	<persistence-unit name="">
-	<provider>oracle.toplink.essentials.PersistenceProvider</provider>
+	<persistence-unit name="tremble_persistence_unit">
 	
-	<class>model.Active_Session</class>
-	<class>model.Course</class>
-	<class>model.Location</class>
-	<class>model.Reg_Session</class>
-	<class>model.Sess_Class</class>
-	<class>model.Trainee</class>
-	<class>model.Trainer</class>
-	<class>model.Wave_Date</class>
-	<class>model.Wave</class>
-	<class>model.Zone</class>
+		<provider>oracle.toplink.essentials.PersistenceProvider</provider>
+		
+		<class>Model.Active_Session</class>
+		<class>Model.Course</class>
+		<class>Model.Location</class>
+		<class>Model.Reg_Session</class>
+		<class>Model.Sess_Class</class>
+		<class>Model.Trainee</class>
+		<class>Model.Trainer</class>
+		<class>Model.Wave_Date</class>
+		<class>Model.Wave</class>
+		<class>Model.Zone</class>
 
-	<properties>
-		<property name="toplink.jdbc.user" value="root"/>
-		<property name="toplink.jdbc.password" value="toor"/>
-		<property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/myway1"/>
-		<property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-		<property name="toplink.ddl-generation" value="create-tables"/>
-	</properties>
+		<properties>
+			<property name="toplink.jdbc.user" value="root"/>
+			<property name="toplink.jdbc.password" value="password"/>
+			<property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/tremble_database"/>
+			<property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="toplink.ddl-generation" value="create-tables"/>
+		</properties>
 	
 	</persistence-unit>
 	
