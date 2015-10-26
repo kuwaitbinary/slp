@@ -6,6 +6,7 @@ import java.security.SecureRandom;
 import java.sql.ResultSet;
 import java.util.Random;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +25,7 @@ import com.ibm.json.java.JSONObject;
  */
 @WebServlet("/ForgetPasswordServlet")
 public class ForgetPasswordServlet extends HttpServlet {
+	private String SEND_EMAIL_URL = "";
 	  private static final Random RANDOM = new SecureRandom();
 	private static final long serialVersionUID = 1L;
 
@@ -55,6 +57,19 @@ void updatePassword(HttpServletRequest request, HttpServletResponse response) th
 		
 		ForgotPasswordDaoImpl ep = new ForgotPasswordDaoImpl();
 		String newPassword = generateRandomPassword();
+		
+		Trainee t1 = ep.getTrainee(id);
+		String email = t1.getEmail();
+		
+		//sendEmail
+		
+		try {
+			sendEmailTask(request, response,email,newPassword);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		Trainee t = new Trainee();
 		t.setPassword(newPassword);
 		
@@ -111,4 +126,12 @@ void updatePassword(HttpServletRequest request, HttpServletResponse response) th
 	      }
 	      return pw;
 	  } 
-	} 
+	 
+
+	 private void sendEmailTask(HttpServletRequest request, HttpServletResponse response, String email, String newPassword) throws ServletException,
+		IOException {
+	
+		RequestDispatcher rd = request.getRequestDispatcher(SEND_EMAIL_URL);
+	
+
+}	} 
