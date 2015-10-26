@@ -4,16 +4,16 @@
 	<persistence-unit name="">
 	<provider>oracle.toplink.essentials.PersistenceProvider</provider>
 	
-	<class>model.Active_Session</class>
-	<class>model.Course</class>
-	<class>model.Location</class>
-	<class>model.Reg_Session</class>
-	<class>model.Sess_Class</class>
-	<class>model.Trainee</class>
-	<class>model.Trainer</class>
-	<class>model.Wave_Date</class>
-	<class>model.Wave</class>
-	<class>model.Zone</class>
+	<class>Model.Active_Session</class>
+	<class>Model.Course</class>
+	<class>Model.Location</class>
+	<class>Model.Reg_Session</class>
+	<class>Model.Sess_Class</class>
+	<class>Model.Trainee</class>
+	<class>Model.Trainer</class>
+	<class>Model.Wave_Date</class>
+	<class>Model.Wave</class>
+	<class>Model.Zone</class>
 
 	<properties>
 		<property name="toplink.jdbc.user" value="root"/>
