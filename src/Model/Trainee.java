@@ -27,8 +27,6 @@ public class Trainee {
 	@OneToMany(mappedBy = "trainee", cascade = CascadeType.ALL)
 	private ArrayList<Reg_Session> regSession;
 	
-	
-	
 	public int getId_Trainee() {
 		return id_Trainee;
 	}

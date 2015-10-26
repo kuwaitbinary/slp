@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +28,8 @@ public class Sess_Class {
 	@ManyToOne
 	private Active_Session activeSession;
 	
-	@ManyToOne
-	private Trainee trainee;
+	@OneToMany(mappedBy = "session_class", cascade=CascadeType.ALL)
+	private List<Reg_Session> registeredSessions;
 	
 	public int getId_class() {
 		return id_class;
@@ -69,13 +71,14 @@ public class Sess_Class {
 		this.activeSession = activeSession;
 	}
 
-	public Trainee getTrainee() {
-		return trainee;
+	public List<Reg_Session> getRegisteredSessions() {
+		return registeredSessions;
 	}
 
-	public void setTrainee(Trainee trainee) {
-		this.trainee = trainee;
+	public void setRegisteredSessions(List<Reg_Session> registeredSessions) {
+		this.registeredSessions = registeredSessions;
 	}
+	
 	
 	
 }

@@ -14,7 +14,7 @@ public class Reg_Session {
 	public int id_reg_session;
 
 	@ManyToOne
-	public Active_Session session_class;
+	public Sess_Class session_class;
 
 	@ManyToOne
 	public Trainee trainee;
@@ -27,12 +27,11 @@ public class Reg_Session {
 		this.id_reg_session = id_reg_session;
 	}
 
-	
-	public Active_Session getSession_class() {
+	public Sess_Class getSession_class() {
 		return session_class;
 	}
 
-	public void setSession_class(Active_Session session_class) {
+	public void setSession_class(Sess_Class session_class) {
 		this.session_class = session_class;
 	}
 
