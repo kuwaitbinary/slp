@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -13,8 +14,10 @@ public class Wave {
 	
 	int id_wave;
 	String wave;
+	
 	@ManyToOne
-	int id_course;
+	@Column(columnDefinition = "id_course")
+	private Course course;
 	
 	@OneToMany
 	List<Wave_Date> waveDate = new ArrayList<Wave_Date>();
@@ -42,15 +45,12 @@ public class Wave {
 		this.wave = wave;
 	}
 
-	public int getId_course() {
-		return id_course;
+	public Course getCourse() {
+		return course;
 	}
 
-	public void setId_course(int id_course) {
-		this.id_course = id_course;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
-	
-	
-	
 
 }
