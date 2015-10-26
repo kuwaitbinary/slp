@@ -79,9 +79,13 @@ public class GetSessionsServlet extends HttpServlet {
 		//	Wave_Date waveDate = sessionDao.getWaveDate();
 			
 			
-			/*jsonReport.put("id_class", e.getId_class());
-			jsonReport.put("id_trainee", e.getId_trainee());
-			jsonReport.put("id_reg_session", e.getId_reg_session());*/
+			jsonReport.put("class_name", sessClass.getName());
+			jsonReport.put("course_name", course.getName());
+			jsonReport.put("location_name", location.getLocation());
+			jsonReport.put("location_gps", location.getGps());
+			jsonReport.put("zone", zone.getZone());
+			jsonReport.put("trainer_name", trainer.getFirstname() + trainer.getLastname());
+			
 			
 			
 			result_data.add(jsonReport);
