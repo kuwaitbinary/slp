@@ -6,7 +6,9 @@ public class Wave {
 	String id_location;
 	int id_course;
 	
-	
+	public Wave() {
+		
+	}
 	
 	public Wave(int id_session, String id_location, int id_course) {
 		super();
