@@ -60,6 +60,7 @@ public class EditUserProfileServlet extends HttpServlet {
 		
 		t.setId_Trainee(newId);
 		t.setFirstname(name);
+		t.setLastname("");
 		t.setMobile(mobile);
 		t.setEmail(email);
 		t.setSubject(subject);

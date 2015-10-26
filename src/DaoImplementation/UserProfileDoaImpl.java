@@ -27,11 +27,16 @@ public class UserProfileDoaImpl {
 		Query q = em
 				.createQuery("select u from Trainee u where u.id_trainee='"
 						+ id_trainee + "'");
-		List<Trainee> us = q.getResultList();
+		
+		//List<Trainee> us = q.getResultList();
 
-		if (us.size() != 0) {
-			userProfile = us.get(0);
+		if (q != null){
+		Trainee trainee = (Trainee) q.getSingleResult();
 		}
+		
+//		if (us.size() != 0) {
+//			userProfile = us.get(0);
+//		}
 
 		return userProfile;
 	}
