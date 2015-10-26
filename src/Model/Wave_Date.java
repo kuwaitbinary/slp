@@ -8,6 +8,9 @@ public class Wave_Date {
 	String wave;
 	Date date;
 	
+	public Wave_Date() {
+		
+	}
 	
 	public Wave_Date(int id_wave_date, String wave, Date date) {
 		super();
