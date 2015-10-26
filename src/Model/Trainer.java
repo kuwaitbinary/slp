@@ -1,8 +1,17 @@
 package Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Trainer {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_Trainer;
+	
 	private String name;
 	private String password;
 	private String firstname;
