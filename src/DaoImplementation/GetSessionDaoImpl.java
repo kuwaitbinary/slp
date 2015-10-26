@@ -113,7 +113,7 @@ public class GetSessionDaoImpl {
 		return course;
 	}
 	
-	public Wave_Date getWaveDate(int id_Wave_Date)
+	public Wave_Date getWaveDate(int id_Wave)
 	{
 		Wave_Date waveDate = new Wave_Date();
 		EntityManager em = this.getSessionEntityManager();
