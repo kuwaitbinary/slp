@@ -1,22 +1,34 @@
 package Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Sess_Class {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_class;
 	
 	private String name;
 	
 	private int max_count;
 	
+	@OneToOne
 	private Trainer trainer;
-	
-	private Active_Session active_session;
 
+	@ManyToOne
+	private Active_Session activeSession;
+	
+	@ManyToOne
+	private Trainee trainee;
+	
 	public int getId_class() {
 		return id_class;
 	}
@@ -49,14 +61,21 @@ public class Sess_Class {
 		this.trainer = trainer;
 	}
 
-	public Active_Session getActive_session() {
-		return active_session;
+	public Active_Session getActiveSession() {
+		return activeSession;
 	}
 
-	public void setActive_session(Active_Session active_session) {
-		this.active_session = active_session;
+	public void setActiveSession(Active_Session activeSession) {
+		this.activeSession = activeSession;
 	}
-	
+
+	public Trainee getTrainee() {
+		return trainee;
+	}
+
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
+	}
 	
 	
 }

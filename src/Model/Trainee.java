@@ -24,7 +24,7 @@ public class Trainee {
 	private String grade;
 	private String subject;
 	
-	@OneToMany(mappedBy = "id_trainee", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "trainee", cascade = CascadeType.ALL)
 	private ArrayList<Reg_Session> regSession;
 	
 	
