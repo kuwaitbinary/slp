@@ -1,9 +1,19 @@
 package Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Reg_Session {
 
+@Id
 public int id_reg_session;
+
+@ManyToOne
 public String id_class;
+
+@ManyToOne
 public String id_trainee;
 
 
