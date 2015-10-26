@@ -55,7 +55,7 @@ public class GetSessionsServlet extends HttpServlet {
 
 		
 		GetSessionDaoImpl sessionDao = new GetSessionDaoImpl();
-		String id_trainee = request.getParameter("username");
+		String id_trainee = request.getParameter("id_trainee");
 		List<Reg_Session> Reg_sessions = sessionDao.getReg_Session(id_trainee);
 		
 		JSONObject json = new JSONObject();
