@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import Model.Trainee;
 
-public class UserProfileDoaImpl implements UserProfileDoa {
+public class UserProfileDoaImpl {
 	
 	public EntityManager getMyWayEntityManager() {
 		
@@ -17,7 +17,7 @@ public class UserProfileDoaImpl implements UserProfileDoa {
 		return emf.createEntityManager();
 	}
 
-	@Override
+
 	public Trainee login(String userName, String passWord) {
 		Trainee userProfile = null;
 
@@ -37,7 +37,7 @@ public class UserProfileDoaImpl implements UserProfileDoa {
 
 	}
 
-	@Override
+
 	public Trainee checkUserName(String userName) {
 		EntityManager em = this.getMyWayEntityManager();
 
@@ -56,7 +56,7 @@ public class UserProfileDoaImpl implements UserProfileDoa {
 		return userProfile;
 	}
 
-	@Override
+
 	public void register(Trainee userProfile) {
 		EntityManager em = this.getMyWayEntityManager();
 		em.getTransaction().begin();
@@ -64,7 +64,7 @@ public class UserProfileDoaImpl implements UserProfileDoa {
 		em.getTransaction().commit();
 	}
 
-	@Override
+
 	public Trainee retriveUserProfile(String userName) {
 		Trainee userProfile = null;
 
@@ -82,7 +82,7 @@ public class UserProfileDoaImpl implements UserProfileDoa {
 		return userProfile;
 	}
 
-	@Override
+
 	public void updateUserProfile(String username, String password,
 			String email, String picture) {
 		EntityManager em = this.getMyWayEntityManager();

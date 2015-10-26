@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
-import DaoImplementation.UserProfileDoa;
+
 import DaoImplementation.UserProfileDoaImpl;
 import Model.Trainee;
 
@@ -53,7 +53,7 @@ public class GetUserProfileServlet extends HttpServlet {
 
 		String userName = request.getParameter("username");
 
-		UserProfileDoa userProfileDoa = new UserProfileDoaImpl();
+		UserProfileDoaImpl userProfileDoa = new UserProfileDoaImpl();
 		Trainee userProfile = userProfileDoa.retriveUserProfile(userName);
 
 		JSONObject json = new JSONObject();
