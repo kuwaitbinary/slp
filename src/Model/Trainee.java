@@ -1,8 +1,20 @@
 package Model;
 
+import java.util.ArrayList;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Trainee {
 
+	@Id
 	private int id_Trainee;
+	
 	private int id_School;
 	private String password;
 	private String email;
@@ -11,6 +23,9 @@ public class Trainee {
 	private String lastname;
 	private String grade;
 	private String subject;
+	
+	@OneToMany(mappedBy = "id_trainee", cascade = CascadeType.ALL)
+	private ArrayList<Reg_Session> regSession;
 	
 	
 	
