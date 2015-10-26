@@ -2,9 +2,16 @@ package Model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Wave_Date {
 
+	
 	int id_wave_date;
+	@ManyToOne
 	int id_Wave;
 	Date date;
 	
