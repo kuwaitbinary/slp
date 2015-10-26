@@ -72,7 +72,7 @@ public class GetSessionsServlet extends HttpServlet {
 			Trainer trainer = sessClass.getTrainer();
 			Active_Session activeSession = sessClass.getActive_session();
 			Location location = activeSession.getLocation();
-			Zone zone = sessionDao.getZone(location.getId_zone());
+			Zone zone = location.getZone();
 			Wave wave = activeSession.getWave();
 			Course course = sessionDao.getCourse(wave.getId_course());
 			Wave_Date waveDate = sessionDao.getWaveDate(wave.getId_wave());
