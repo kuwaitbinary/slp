@@ -12,6 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DaoImplementation.EditProfileDaoImpl;
+import DaoImplementation.ForgotPasswordDaoImpl;
+import Model.Trainee;
+
+import com.ibm.json.java.JSONArray;
+import com.ibm.json.java.JSONObject;
+
 /**
  * Servlet implementation class ForgetPasswordServlet
  */
@@ -20,47 +27,10 @@ public class ForgetPasswordServlet extends HttpServlet {
 	  private static final Random RANDOM = new SecureRandom();
 	private static final long serialVersionUID = 1L;
 
-protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-	throws ServletException, IOException {
-	       response.setContentType("text/html;charset=UTF-8");
-	       PrintWriter out = response.getWriter();
-	 
-	try {
-	  
-	 
-	 
-	//Database
-	       String email=request.getParameter("email");
-	       ExecuteNonQ ex=new ExecuteNonQ();
-	       
-	 
-// out.print(email);
-	 
-	       ResultSet rs=ex.SelectQueryByFieldWithCondition("USER_ID,Password","USER_ACCOUNTS","NBC_Email",email);
-	 try{
-	 
-	        while(rs.next()){
-	            String id=rs.getString("id_trainee");
-	            String pwd=rs.getString("password");
-	            out.print(id+pwd);     
-	            response.sendRedirect("index?page=SendForgotPassword?email='"+email+"'&uid="+id+"&pwd="+pwd+"");
-	            }
-	  }
-	 
-	 catch(Exception e){e.getLocalizedMessage();
-	   }
-	 
-	//End Database
-	       
-	        }
-	
-	finally {            
-	        out.close();
-	        }
-	    }
+
 
     public ForgetPasswordServlet() {
-
+    	 super();
     }
 
 	/**
@@ -68,31 +38,65 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		resetPassword(request, response);}
+		updatePassword(request, response);
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		resetPassword(request, response);
+		updatePassword(request, response);
 	}
 	  
+void updatePassword(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		int id = Integer.parseInt((String)request.getParameter("idTrainee"));
+		
+		ForgotPasswordDaoImpl ep = new ForgotPasswordDaoImpl();
+		String newPassword = generateRandomPassword();
+		Trainee t = new Trainee();
+		t.setPassword(newPassword);
+		
+		
+		ep.forgotPassword(id, t);
+		
+		JSONObject json = new JSONObject();
+		json.put("message", "success");
+		json.put("result_code", 0);
+		
+		
+		JSONArray result_data = new JSONArray();
+
+		//for(int i = 0;i<favorites.size();i++) {
+			
+			JSONObject jsonReport = new JSONObject();
+			
+			
+			//jsonReport.put("name", f.getName());
+			//jsonReport.put("latitude", f.getLatitude());
+			//jsonReport.put("longitude", f.getLongitude());
+			
+			result_data.add(jsonReport);
+		//}
+		
+		json.put("result_data", result_data);
+		
+		
+		response.getWriter().print(json);
+
+}
+	
+	
 	 @Override
 	 
 	    public String getServletInfo() {
 	 
-	        return "Short description";
+	        return "Forgot Password";
 
 	    }
 	 
-	 public void resetPassword(HttpServletRequest request, HttpServletResponse response){
-		 
-		 String id = request.getParameter("id_trainee");
-		 
-		 String newPassword = generateRandomPassword();
-		 
-	 }
+	 
 	 public static String generateRandomPassword ()
 	  {
 	      // Pick from some letters that won't be easily mistaken for each
@@ -106,20 +110,5 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
 	          pw += letters.substring(index, index+1);
 	      }
 	      return pw;
-	  }
-
-	 @Override 
-	 public void getPendingEvents(String newPassword, String id_trainee) { 
-
-	 EntityManager em = this.getMyWayEntityManager(); 
-	 Query q = em.createQuery("UPDATE Trainee SET password='"+newPassword+"' WHERE id_trainee='"+id_trainee+"'"); 
-	 events = q.getResultList(); 
-	
-	  
-		return events; 
-	 } 
-
-
-	 
-	 
+	  } 
 	} 
