@@ -13,6 +13,7 @@ public class Trainee {
 	private String subject;
 	
 	
+	
 	public int getId_Trainee() {
 		return id_Trainee;
 	}
