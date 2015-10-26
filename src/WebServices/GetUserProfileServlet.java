@@ -64,18 +64,18 @@ public class GetUserProfileServlet extends HttpServlet {
 
 		JSONObject jsonReport = new JSONObject();
 		
-		jsonReport.put("password", userProfile.getPassword());
+
 		jsonReport.put("email", userProfile.getEmail());
 		
 		jsonReport.put("traineeId", userProfile.getId_Trainee());
-		jsonReport.put("schoolId",userProfile.getId_School());
+
 		jsonReport.put("mobile",userProfile.getMobile());
 		jsonReport.put("firstname",userProfile.getFirstname());
 		jsonReport.put("lastname",userProfile.getLastname());
-		jsonReport.put("grade",userProfile.getGrade());
+
 		jsonReport.put("subject",userProfile.getSubject());
 		
-		//jsonReport.put("profile_picture", userProfile.getProfilePicture());
+
 
 		result_data.add(jsonReport);
 
