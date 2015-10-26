@@ -21,7 +21,7 @@ public class GetSessionDaoImpl {
 
 	public EntityManager getSessionEntityManager() {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("myway");
+				.createEntityManagerFactory("tremble_persistence_unit");
 		return emf.createEntityManager();
 	}
 	

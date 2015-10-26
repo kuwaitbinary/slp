@@ -13,7 +13,7 @@ public class UserProfileDoaImpl {
 	public EntityManager getMyWayEntityManager() {
 		
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("myway");
+				.createEntityManagerFactory("tremble_persistence_unit");
 		return emf.createEntityManager();
 	}
 
