@@ -39,6 +39,9 @@ public class ForgotPasswordDaoImpl {
 		em.merge(tempTrainee);
 		em.getTransaction().commit();
 		
+		
+		
 	}
+	
 	
 }

@@ -53,7 +53,6 @@ public class GetSessionsServlet extends HttpServlet {
 	
 	void viewUserSessions(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
-		
 		GetSessionDaoImpl sessionDao = new GetSessionDaoImpl();
 		String id_trainee = request.getParameter("id_trainee");
 		List<Reg_Session> Reg_sessions = sessionDao.getReg_Session(id_trainee);
@@ -93,7 +92,6 @@ public class GetSessionsServlet extends HttpServlet {
 		}
 		
 		json.put("result_data", result_data);
-		
 		
 		response.getWriter().print(json);
 	}
