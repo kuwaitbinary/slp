@@ -24,16 +24,16 @@ public class Sess_Class {
 	
 	private int max_count;
 	
-	@OneToOne
-	@Column(columnDefinition = "id_trainer")
-	private Trainer trainer;
-
-	@ManyToOne
-	@Column(columnDefinition = "id_session")
-	private Active_Session activeSession;
-	
-	@OneToMany(mappedBy = "session_class", cascade=CascadeType.ALL)
-	private ArrayList<Reg_Session> registeredSessions;
+//	@OneToOne
+//	@Column(columnDefinition = "id_trainer")
+//	private Trainer trainer;
+//
+//	@ManyToOne
+//	@Column(columnDefinition = "id_session")
+//	private Active_Session activeSession;
+//	
+//	@OneToMany(mappedBy = "session_class", cascade=CascadeType.ALL)
+//	private ArrayList<Reg_Session> registeredSessions;
 	
 	public int getId_class() {
 		return id_class;
@@ -59,28 +59,28 @@ public class Sess_Class {
 		this.max_count = max_count;
 	}
 
-	public Trainer getTrainer() {
-		return trainer;
-	}
-
-	public void setTrainer(Trainer trainer) {
-		this.trainer = trainer;
-	}
-
-	public Active_Session getActiveSession() {
-		return activeSession;
-	}
-
-	public void setActiveSession(Active_Session activeSession) {
-		this.activeSession = activeSession;
-	}
-
-	public ArrayList<Reg_Session> getRegisteredSessions() {
-		return registeredSessions;
-	}
-
-	public void setRegisteredSessions(ArrayList<Reg_Session> registeredSessions) {
-		this.registeredSessions = registeredSessions;
-	}
+//	public Trainer getTrainer() {
+//		return trainer;
+//	}
+//
+//	public void setTrainer(Trainer trainer) {
+//		this.trainer = trainer;
+//	}
+//
+//	public Active_Session getActiveSession() {
+//		return activeSession;
+//	}
+//
+//	public void setActiveSession(Active_Session activeSession) {
+//		this.activeSession = activeSession;
+//	}
+//
+//	public ArrayList<Reg_Session> getRegisteredSessions() {
+//		return registeredSessions;
+//	}
+//
+//	public void setRegisteredSessions(ArrayList<Reg_Session> registeredSessions) {
+//		this.registeredSessions = registeredSessions;
+//	}
 		
 }
