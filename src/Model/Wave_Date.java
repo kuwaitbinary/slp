@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Wave_Date {
@@ -19,6 +21,7 @@ public class Wave_Date {
 //	@ManyToOne
 //	private Wave wave;
 	
+	@Temporal(TemporalType.DATE)
 	private Date date;
 
 //	public Wave_Date(int id_wave_date, Wave wave, Date date) {
