@@ -66,29 +66,29 @@ public class GetSessionsServlet extends HttpServlet {
 
 		for(int i = 0;i<Reg_sessions.size();i++) {
 			
-//			JSONObject jsonReport = new JSONObject();
-//			Reg_Session regSession = Reg_sessions.get(i);
-//			Sess_Class sessClass = sessionDao.getSess_Class(regSession.getId_class());
-//			Trainer trainer = sessClass.getTrainer();
-//			Active_Session activeSession = sessClass.getActive_session();
-//			Location location = activeSession.getLocation();
-//			Zone zone = location.getZone();
-//			Wave wave = activeSession.getWave();
-//			Course course = wave.getCourse();
-//			Wave_Date waveDate = sessionDao.getWaveDate(wave.getId_wave());
-//			
-//			
-//			jsonReport.put("class_name", sessClass.getName());
-//			jsonReport.put("course_name", course.getName());
-//			jsonReport.put("location_name", location.getLocation());
-//			jsonReport.put("location_gps", location.getGps());
-//			jsonReport.put("zone", zone.getZone());
-//			jsonReport.put("trainer_name", trainer.getFirstname() + trainer.getLastname());
-//			jsonReport.put("wave_date", waveDate.getDate());
-//			
-//			
+			JSONObject jsonReport = new JSONObject();
+			Reg_Session regSession = Reg_sessions.get(i);
+			Sess_Class sessClass = regSession.getSession_class();
+			Trainer trainer = sessClass.getTrainer();
+			Active_Session activeSession = sessClass.getActiveSession();
+			Location location = activeSession.getLocation();
+			Zone zone = location.getZone();
+			Wave wave = activeSession.getWave();
+			Course course = wave.getCourse();
+			Wave_Date waveDate = sessionDao.getWaveDate(wave.getId_wave());
 			
-//			result_data.add(jsonReport);
+			
+			jsonReport.put("class_name", sessClass.getName());
+			jsonReport.put("course_name", course.getName());
+			jsonReport.put("location_name", location.getLocation());
+			jsonReport.put("location_gps", location.getGps());
+			jsonReport.put("zone", zone.getZone());
+			jsonReport.put("trainer_name", trainer.getFirstname() + trainer.getLastname());
+			jsonReport.put("wave_date", waveDate.getDate());
+			
+			
+			
+			result_data.add(jsonReport);
 			result_data.add("");
 		}
 		
