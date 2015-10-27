@@ -86,7 +86,7 @@ public class GetSessionsServlet extends HttpServlet {
 			jsonReport.put("location_gps", location.getGps());
 			jsonReport.put("zone", zone.getZone());
 			jsonReport.put("trainer_name", trainer.getFirstname() + trainer.getLastname());
-			jsonReport.put("wave_date", waveDate.getDate());
+			jsonReport.put("wave_date", waveDate.getDate().toString());
 			
 			
 			

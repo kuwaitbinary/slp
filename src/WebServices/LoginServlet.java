@@ -36,8 +36,8 @@ public class LoginServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// to create the DB tables
-		UserProfileDoaImpl u = new UserProfileDoaImpl();
-		u.getMyWayEntityManager();
+//		UserProfileDoaImpl u = new UserProfileDoaImpl();
+//		u.getMyWayEntityManager();
 		// to call the login method below
 		login(request, response);
 	}
@@ -65,9 +65,7 @@ public class LoginServlet extends HttpServlet {
 		Trainee t = user.retriveUserProfile(id_trainee);
 
 //		String Realpassword = t.getPassword();
-
-		boolean isAuthorised = password == t.getPassword();
-
+		
 		JSONObject json = new JSONObject();
 
 		json.put("message", "success");
@@ -77,14 +75,20 @@ public class LoginServlet extends HttpServlet {
 		JSONArray result_data = new JSONArray();
 
 		JSONObject jsonReport = new JSONObject();
-
-		jsonReport.put("flag", String.valueOf(isAuthorised));
-
+		
+		if (t == null){
+			jsonReport.put("flag", "false");
+		} else {
+			boolean isAuthorised = password.equals(t.getPassword());
+			jsonReport.put("flag", String.valueOf(isAuthorised));
+			
+		}
+		
 		result_data.add(jsonReport);
-
 		json.put("result_data", result_data);
 
 		response.getWriter().print(json);
+		
 	}
 
 }

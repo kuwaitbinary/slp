@@ -11,8 +11,8 @@ import javax.persistence.OneToMany;
 public class Trainee {
 
 	@Id
-	private int id_Trainee;
-	private int id_School;
+	private int id_trainee;
+	private int id_school;
 	private String password;
 	private String email;
 	private String mobile;
@@ -25,19 +25,19 @@ public class Trainee {
 	private List<Reg_Session> regSession;
 
 	public int getId_Trainee() {
-		return id_Trainee;
+		return id_trainee;
 	}
 
 	public void setId_Trainee(int id_Trainee) {
-		this.id_Trainee = id_Trainee;
+		this.id_trainee = id_Trainee;
 	}
 
 	public int getId_School() {
-		return id_School;
+		return id_school;
 	}
 
 	public void setId_School(int id_School) {
-		this.id_School = id_School;
+		this.id_school = id_School;
 	}
 
 	public String getPassword() {

@@ -21,7 +21,7 @@ public class ForgotPasswordDaoImpl {
 		Trainee trainee;
 		EntityManager em = this.getMyWayEntityManager();
 		
-		Query q = em.createQuery("select t from Trainee t where t.id_Trainee='"+id+"'");
+		Query q = em.createQuery("select t from Trainee t where t.id_trainee="+id);
 		trainee = (Trainee) q.getSingleResult();
 
 		

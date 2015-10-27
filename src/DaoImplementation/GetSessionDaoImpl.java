@@ -30,7 +30,7 @@ public class GetSessionDaoImpl {
 		// TODO Auto-generated method stub
 		EntityManager em = this.getSessionEntityManager();
 		List<Reg_Session> reg_Session = null;
-		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
+		Query q = em.createQuery("SELECT rs FROM Reg_Session rs where rs.id_reg_session = " + id_trainee);
 		reg_Session = q.getResultList();
 
 		return reg_Session;
@@ -118,7 +118,7 @@ public class GetSessionDaoImpl {
 		Wave_Date waveDate = new Wave_Date();
 		EntityManager em = this.getSessionEntityManager();
 		
-		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
+		Query q = em.createQuery("SELECT wd FROM Wave_Date wd where wd.id_wave_date = " + id_Wave);
 		waveDate = (Wave_Date) q.getSingleResult();
 			
 		return waveDate;

@@ -25,18 +25,16 @@ public class UserProfileDoaImpl {
 		EntityManager em = this.getMyWayEntityManager();
 
 		Query q = em
-				.createQuery("select u from Trainee u where u.id_trainee='"
-						+ id_trainee + "'");
+				.createQuery("select u from Trainee u where u.id_trainee="
+						+ id_trainee);
 		
-		//List<Trainee> us = q.getResultList();
-
-		if (q != null){
-		Trainee trainee = (Trainee) q.getSingleResult();
+		Object result = q.getSingleResult();
+		
+		if (result != null){
+		userProfile = (Trainee) result;
+		}else {
+			return null;
 		}
-		
-//		if (us.size() != 0) {
-//			userProfile = us.get(0);
-//		}
 
 		return userProfile;
 	}
