@@ -1,5 +1,6 @@
 package Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +15,11 @@ public class Reg_Session {
 	public int id_reg_session;
 
 	@ManyToOne
+	@Column(columnDefinition = "id_class")
 	public Sess_Class session_class;
 
 	@ManyToOne
+	@Column(columnDefinition = "id_trainee")
 	public Trainee trainee;
 
 	public int getId_reg_session() {
@@ -42,7 +45,5 @@ public class Reg_Session {
 	public void setTrainee(Trainee trainee) {
 		this.trainee = trainee;
 	}
-
-	
 
 }

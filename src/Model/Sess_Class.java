@@ -1,8 +1,10 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,13 +25,15 @@ public class Sess_Class {
 	private int max_count;
 	
 	@OneToOne
+	@Column(columnDefinition = "id_trainer")
 	private Trainer trainer;
 
 	@ManyToOne
+	@Column(columnDefinition = "id_session")
 	private Active_Session activeSession;
 	
 	@OneToMany(mappedBy = "session_class", cascade=CascadeType.ALL)
-	private List<Reg_Session> registeredSessions;
+	private ArrayList<Reg_Session> registeredSessions;
 	
 	public int getId_class() {
 		return id_class;
@@ -71,14 +75,12 @@ public class Sess_Class {
 		this.activeSession = activeSession;
 	}
 
-	public List<Reg_Session> getRegisteredSessions() {
+	public ArrayList<Reg_Session> getRegisteredSessions() {
 		return registeredSessions;
 	}
 
-	public void setRegisteredSessions(List<Reg_Session> registeredSessions) {
+	public void setRegisteredSessions(ArrayList<Reg_Session> registeredSessions) {
 		this.registeredSessions = registeredSessions;
 	}
-	
-	
-	
+		
 }

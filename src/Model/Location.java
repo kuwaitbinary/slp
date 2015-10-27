@@ -1,5 +1,6 @@
 package Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Location {
 	@ManyToOne
 	private Zone zone;
 	
-	@OneToOne(mappedBy = "location")
+	@OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
 	private Active_Session activeSession;
 	
 	public int getId_location() {
