@@ -14,13 +14,13 @@ public class Reg_Session {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int id_reg_session;
 
-	@ManyToOne
-	@Column(columnDefinition = "id_class")
-	public Sess_Class session_class;
-
-	@ManyToOne
-	@Column(columnDefinition = "id_trainee")
-	public Trainee trainee;
+//	@ManyToOne
+//	@Column(columnDefinition = "id_class")
+//	public Sess_Class session_class;
+//
+//	@ManyToOne
+//	@Column(columnDefinition = "id_trainee")
+//	public Trainee trainee;
 
 	public int getId_reg_session() {
 		return id_reg_session;
@@ -30,20 +30,20 @@ public class Reg_Session {
 		this.id_reg_session = id_reg_session;
 	}
 
-	public Sess_Class getSession_class() {
-		return session_class;
-	}
-
-	public void setSession_class(Sess_Class session_class) {
-		this.session_class = session_class;
-	}
-
-	public Trainee getTrainee() {
-		return trainee;
-	}
-
-	public void setTrainee(Trainee trainee) {
-		this.trainee = trainee;
-	}
+//	public Sess_Class getSession_class() {
+//		return session_class;
+//	}
+//
+//	public void setSession_class(Sess_Class session_class) {
+//		this.session_class = session_class;
+//	}
+//
+//	public Trainee getTrainee() {
+//		return trainee;
+//	}
+//
+//	public void setTrainee(Trainee trainee) {
+//		this.trainee = trainee;
+//	}
 
 }

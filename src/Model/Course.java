@@ -22,9 +22,9 @@ public class Course {
 	
 	private int duration;
 	
-	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-	private ArrayList<Wave> waves;
-	
+//	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+//	private ArrayList<Wave> waves;
+
 	public int getDuration() {
 		return duration;
 	}
@@ -57,12 +57,12 @@ public class Course {
 		this.id_course = i;
 	}
 
-	public ArrayList<Wave> getWaves() {
-		return waves;
-	}
-
-	public void setWaves(ArrayList<Wave> waves) {
-		this.waves = waves;
-	}
+//	public ArrayList<Wave> getWaves() {
+//		return waves;
+//	}
+//
+//	public void setWaves(ArrayList<Wave> waves) {
+//		this.waves = waves;
+//	}
 
 }
