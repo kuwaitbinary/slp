@@ -30,10 +30,6 @@ public class Wave {
 	
 	@OneToMany(mappedBy="wave", cascade=CascadeType.ALL)
 	private ArrayList<Active_Session> sessions;
-	
-	public Wave() {
-		
-	}
 
 	public int getId_wave() {
 		return id_wave;

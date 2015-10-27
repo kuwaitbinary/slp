@@ -19,28 +19,21 @@ public class Wave_Date {
 	@ManyToOne
 	private Wave wave;
 	
-	Date date;
-	
-	public Wave_Date() {
-		
+	private Date date;
+
+	public Wave_Date(int id_wave_date, Wave wave, Date date) {
+		super();
+		this.id_wave_date = id_wave_date;
+		this.wave = wave;
+		this.date = date;
 	}
-	
+
 	public int getId_wave_date() {
 		return id_wave_date;
 	}
 
-
 	public void setId_wave_date(int id_wave_date) {
 		this.id_wave_date = id_wave_date;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public Wave getWave() {
@@ -51,12 +44,12 @@ public class Wave_Date {
 		this.wave = wave;
 	}
 
-	public Wave_Date(int id_wave_date, Wave wave, Date date) {
-		super();
-		this.id_wave_date = id_wave_date;
-		this.wave = wave;
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
+		
 }
