@@ -20,12 +20,12 @@ public class Location {
 	
 	private String gps;
 	
-//	@Column(columnDefinition = "id_zone")
-//	@ManyToOne
-//	private Zone zone;
-//	
-//	@OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
-//	private Active_Session activeSession;
+	//@Column(name = "id_zone")
+	@ManyToOne
+	private Zone zone;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private Active_Session activeSession;
 
 	public int getId_location() {
 		return id_location;
@@ -51,20 +51,20 @@ public class Location {
 		this.gps = gps;
 	}
 
-//	public Zone getZone() {
-//		return zone;
-//	}
-//
-//	public void setZone(Zone zone) {
-//		this.zone = zone;
-//	}
-//
-//	public Active_Session getActiveSession() {
-//		return activeSession;
-//	}
-//
-//	public void setActiveSession(Active_Session activeSession) {
-//		this.activeSession = activeSession;
-//	}
+	public Zone getZone() {
+		return zone;
+	}
+
+	public void setZone(Zone zone) {
+		this.zone = zone;
+	}
+
+	public Active_Session getActiveSession() {
+		return activeSession;
+	}
+
+	public void setActiveSession(Active_Session activeSession) {
+		this.activeSession = activeSession;
+	}
 
 }

@@ -1,11 +1,9 @@
 package Model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -23,8 +21,8 @@ public class Trainee {
 	private String grade;
 	private String subject;
 	
-//	@OneToMany(mappedBy = "trainee", cascade = CascadeType.ALL)
-//	private ArrayList<Reg_Session> regSession;
+	@OneToMany(mappedBy = "trainee", cascade = CascadeType.ALL)
+	private List<Reg_Session> regSession;
 
 	public int getId_Trainee() {
 		return id_Trainee;
@@ -98,12 +96,12 @@ public class Trainee {
 		this.subject = subject;
 	}
 
-//	public ArrayList<Reg_Session> getRegSession() {
-//		return regSession;
-//	}
-//
-//	public void setRegSession(ArrayList<Reg_Session> regSession) {
-//		this.regSession = regSession;
-//	}
+	public List<Reg_Session> getRegSession() {
+		return regSession;
+	}
+
+	public void setRegSession(List<Reg_Session> regSession) {
+		this.regSession = regSession;
+	}
 		
 }

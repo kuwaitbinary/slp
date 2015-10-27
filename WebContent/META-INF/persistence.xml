@@ -5,9 +5,7 @@
 	
 		<provider>oracle.toplink.essentials.PersistenceProvider</provider>
 		
-		<class>Model.Active_Session</class>
 		<class>Model.Course</class>
-		<class>Model.Location</class>
 		<class>Model.Reg_Session</class>
 		<class>Model.Sess_Class</class>
 		<class>Model.Trainee</class>
@@ -15,6 +13,8 @@
 		<class>Model.Wave_Date</class>
 		<class>Model.Wave</class>
 		<class>Model.Zone</class>
+		<class>Model.Location</class>
+		<class>Model.Active_Session</class>
 
 		<properties>
 			<property name="toplink.jdbc.user" value="root"/>

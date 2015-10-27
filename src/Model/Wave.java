@@ -21,15 +21,15 @@ public class Wave {
 	
 	private String wave;
 	
-//	@ManyToOne
-//	@Column(columnDefinition = "id_course")
-//	private Course course;
-//	
-//	@OneToMany (mappedBy="wave", cascade=CascadeType.ALL)
-//	private ArrayList<Wave_Date> waveDate;
-//	
-//	@OneToMany(mappedBy="wave", cascade=CascadeType.ALL)
-//	private ArrayList<Active_Session> sessions;
+	@ManyToOne
+	//@Column(name = "id_course")
+	private Course course;
+	
+	@OneToMany (mappedBy="wave", cascade=CascadeType.ALL)
+	List<Wave_Date> waveDate;
+	
+	@OneToMany(mappedBy="wave", cascade=CascadeType.ALL)
+	private List<Active_Session> sessions;
 
 	public int getId_wave() {
 		return id_wave;
@@ -47,30 +47,28 @@ public class Wave {
 		this.wave = wave;
 	}
 
-//	public Course getCourse() {
-//		return course;
-//	}
-//
-//	public void setCourse(Course course) {
-//		this.course = course;
-//	}
-//
-//	public ArrayList<Wave_Date> getWaveDate() {
-//		return waveDate;
-//	}
-//
-//	public void setWaveDate(ArrayList<Wave_Date> waveDate) {
-//		this.waveDate = waveDate;
-//	}
-//
-//	public ArrayList<Active_Session> getSessions() {
-//		return sessions;
-//	}
-//
-//	public void setSessions(ArrayList<Active_Session> sessions) {
-//		this.sessions = sessions;
-//	}
-	
-	
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	public List<Wave_Date> getWaveDate() {
+		return waveDate;
+	}
+
+	public void setWaveDate(List<Wave_Date> waveDate) {
+		this.waveDate = waveDate;
+	}
+
+	public List<Active_Session> getSessions() {
+		return sessions;
+	}
+
+	public void setSessions(List<Active_Session> sessions) {
+		this.sessions = sessions;
+	}
 
 }

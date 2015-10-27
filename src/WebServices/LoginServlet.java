@@ -28,6 +28,9 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		UserProfileDoaImpl u = new UserProfileDoaImpl();
+		u.getMyWayEntityManager();
 	}
 
 	/**
