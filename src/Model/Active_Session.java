@@ -20,16 +20,16 @@ public class Active_Session {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_session;
 	
-//	@OneToOne
-//	@Column(columnDefinition = "id_location")
-//	private Location location;
-//	
-//	@ManyToOne
-//	@Column(columnDefinition = "id_wave")
-//	private Wave wave;
-//	
-//	@OneToMany (mappedBy = "activeSession", cascade=CascadeType.ALL)
-//	private ArrayList<Sess_Class> sessionClasses;
+	@OneToOne
+	@Column(columnDefinition = "id_location")
+	private Location location;
+	
+	@ManyToOne
+	@Column(columnDefinition = "id_wave")
+	private Wave wave;
+	
+	@OneToMany (mappedBy = "activeSession", cascade=CascadeType.ALL)
+	private ArrayList<Sess_Class> sessionClasses;
 
 	public int getId_session() {
 		return id_session;
@@ -39,28 +39,28 @@ public class Active_Session {
 		this.id_session = id_session;
 	}
 
-//	public Location getLocation() {
-//		return location;
-//	}
-//
-//	public void setLocation(Location location) {
-//		this.location = location;
-//	}
-//
-//	public Wave getWave() {
-//		return wave;
-//	}
-//
-//	public void setWave(Wave wave) {
-//		this.wave = wave;
-//	}
-//
-//	public ArrayList<Sess_Class> getSessionClasses() {
-//		return sessionClasses;
-//	}
-//
-//	public void setSessionClasses(ArrayList<Sess_Class> sessionClasses) {
-//		this.sessionClasses = sessionClasses;
-//	}
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public Wave getWave() {
+		return wave;
+	}
+
+	public void setWave(Wave wave) {
+		this.wave = wave;
+	}
+
+	public ArrayList<Sess_Class> getSessionClasses() {
+		return sessionClasses;
+	}
+
+	public void setSessionClasses(ArrayList<Sess_Class> sessionClasses) {
+		this.sessionClasses = sessionClasses;
+	}
 
 }

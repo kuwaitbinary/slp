@@ -18,8 +18,8 @@ public class Zone {
 	
 	private String zone;
 	
-//	@OneToMany(mappedBy = "zone", cascade = CascadeType.ALL)
-//	private ArrayList<Location> locations;
+	@OneToMany(mappedBy = "zone", cascade = CascadeType.ALL)
+	private ArrayList<Location> locations;
 	
 	public int getId_zone() {
 		return id_zone;
@@ -37,12 +37,12 @@ public class Zone {
 		this.zone = zone;
 	}
 
-//	public ArrayList<Location> getLocations() {
-//		return locations;
-//	}
-//
-//	public void setLocations(ArrayList<Location> locations) {
-//		this.locations = locations;
-//	}
+	public ArrayList<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(ArrayList<Location> locations) {
+		this.locations = locations;
+	}
 
 }

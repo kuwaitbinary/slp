@@ -18,18 +18,18 @@ public class Wave_Date {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_wave_date;
 	
-//	@ManyToOne
-//	private Wave wave;
+	@ManyToOne
+	private Wave wave;
 	
 	@Temporal(TemporalType.DATE)
 	private Date date;
 
-//	public Wave_Date(int id_wave_date, Wave wave, Date date) {
-//		super();
-//		this.id_wave_date = id_wave_date;
-//		this.wave = wave;
-//		this.date = date;
-//	}
+	public Wave_Date(int id_wave_date, Wave wave, Date date) {
+		super();
+		this.id_wave_date = id_wave_date;
+		this.wave = wave;
+		this.date = date;
+	}
 
 	public int getId_wave_date() {
 		return id_wave_date;
@@ -39,13 +39,13 @@ public class Wave_Date {
 		this.id_wave_date = id_wave_date;
 	}
 
-//	public Wave getWave() {
-//		return wave;
-//	}
-//
-//	public void setWave(Wave wave) {
-//		this.wave = wave;
-//	}
+	public Wave getWave() {
+		return wave;
+	}
+
+	public void setWave(Wave wave) {
+		this.wave = wave;
+	}
 
 	public Date getDate() {
 		return date;
