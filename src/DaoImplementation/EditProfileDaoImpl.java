@@ -36,7 +36,7 @@ public class EditProfileDaoImpl {
 		Trainee tempTrainee = em.find(Trainee.class, id);
 		tempTrainee.setFirstname(t.getFirstname());
 		tempTrainee.setEmail(t.getEmail());
-		tempTrainee.setId_Trainee(t.getId_Trainee());
+//		tempTrainee.setId_Trainee(t.getId_Trainee());
 		tempTrainee.setMobile(t.getMobile());
 		tempTrainee.setSubject(t.getSubject());
 		

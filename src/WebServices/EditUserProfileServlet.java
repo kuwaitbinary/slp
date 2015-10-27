@@ -48,7 +48,7 @@ public class EditUserProfileServlet extends HttpServlet {
 	void editProfile(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		int id = Integer.parseInt((String)request.getParameter("idTrainee"));
-		int newId = Integer.parseInt((String)request.getParameter("newIdTrainee"));
+		
 		String name = (String)request.getParameter("name");
 		String mobile = (String)request.getParameter("mobile");
 		String email = (String)request.getParameter("email");
@@ -58,7 +58,7 @@ public class EditUserProfileServlet extends HttpServlet {
 		
 		Trainee t = new Trainee();
 		
-		t.setId_Trainee(newId);
+		t.setId_Trainee(id);
 		t.setFirstname(name);
 		t.setLastname("");
 		t.setMobile(mobile);
