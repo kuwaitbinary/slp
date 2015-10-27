@@ -6,24 +6,30 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Wave {
 	
-	int id_wave;
-	String wave;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id_wave;
+	
+	private String wave;
 	
 	@ManyToOne
 	@Column(columnDefinition = "id_course")
 	private Course course;
 	
-	@OneToMany
-	List<Wave_Date> waveDate = new ArrayList<Wave_Date>();
+	@OneToMany (mappedBy="wave", cascade=CascadeType.ALL)
+	private ArrayList<Wave_Date> waveDate;
 	
-	@OneToMany(mappedBy="wave",cascade=CascadeType.ALL)
-	List<Active_Session> sessions = new ArrayList<Active_Session>();
+	@OneToMany(mappedBy="wave", cascade=CascadeType.ALL)
+	private ArrayList<Active_Session> sessions;
 	
 	public Wave() {
 		
@@ -52,5 +58,23 @@ public class Wave {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
+
+	public ArrayList<Wave_Date> getWaveDate() {
+		return waveDate;
+	}
+
+	public void setWaveDate(ArrayList<Wave_Date> waveDate) {
+		this.waveDate = waveDate;
+	}
+
+	public ArrayList<Active_Session> getSessions() {
+		return sessions;
+	}
+
+	public void setSessions(ArrayList<Active_Session> sessions) {
+		this.sessions = sessions;
+	}
+	
+	
 
 }

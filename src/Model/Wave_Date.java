@@ -4,29 +4,27 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Wave_Date {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id_wave_date;
 	
-	int id_wave_date;
 	@ManyToOne
-	int id_Wave;
+	private Wave wave;
+	
 	Date date;
 	
 	public Wave_Date() {
 		
 	}
 	
-	public Wave_Date(int id_wave_date, int wave, Date date) {
-		super();
-		this.id_wave_date = id_wave_date;
-		this.id_Wave = wave;
-		this.date = date;
-	}
-
-
 	public int getId_wave_date() {
 		return id_wave_date;
 	}
@@ -36,17 +34,6 @@ public class Wave_Date {
 		this.id_wave_date = id_wave_date;
 	}
 
-
-	public int getWave() {
-		return id_Wave;
-	}
-
-
-	public void setWave(int idWave) {
-		this.id_Wave = idWave;
-	}
-
-
 	public Date getDate() {
 		return date;
 	}
@@ -55,9 +42,21 @@ public class Wave_Date {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
-	
+
+	public Wave getWave() {
+		return wave;
+	}
+
+	public void setWave(Wave wave) {
+		this.wave = wave;
+	}
+
+	public Wave_Date(int id_wave_date, Wave wave, Date date) {
+		super();
+		this.id_wave_date = id_wave_date;
+		this.wave = wave;
+		this.date = date;
+	}
 	
 	
 }
