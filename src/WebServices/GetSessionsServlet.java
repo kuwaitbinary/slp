@@ -42,6 +42,7 @@ public class GetSessionsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		viewUserSessions(request, response);
 	}
 
 	/**
@@ -49,6 +50,7 @@ public class GetSessionsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		viewUserSessions(request, response);
 	}
 	
 	void viewUserSessions(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -89,7 +91,6 @@ public class GetSessionsServlet extends HttpServlet {
 			
 			
 			result_data.add(jsonReport);
-			result_data.add("");
 		}
 		
 		json.put("result_data", result_data);

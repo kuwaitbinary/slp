@@ -13,7 +13,7 @@ public class ForgotPasswordDaoImpl {
 	//method to get the entity manager 
 	public EntityManager getMyWayEntityManager() {
 		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("");
+				.createEntityManagerFactory("tremble_persistence_unit");
 		return emf.createEntityManager();
 	}
 	
