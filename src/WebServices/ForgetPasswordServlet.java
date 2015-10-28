@@ -23,7 +23,7 @@ import com.ibm.json.java.JSONObject;
 /**
  * Servlet implementation class ForgetPasswordServlet
  */
-@WebServlet("/ForgetPasswordServlet")
+@WebServlet("/ForgetPassword")
 public class ForgetPasswordServlet extends HttpServlet {
 	private String SEND_EMAIL_URL = "";
 	  private static final Random RANDOM = new SecureRandom();

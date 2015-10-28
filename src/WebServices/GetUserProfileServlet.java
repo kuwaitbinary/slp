@@ -16,7 +16,7 @@ import Model.Trainee;
 /**
  * Servlet implementation class GetUserProfileServlet
  */
-@WebServlet("/GetUserProfileServlet")
+@WebServlet("/GetUserProfile")
 public class GetUserProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

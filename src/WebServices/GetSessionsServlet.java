@@ -26,7 +26,7 @@ import Model.Zone;
 /**
  * Servlet implementation class GetSessionsServlet
  */
-@WebServlet("/GetSessionsServlet")
+@WebServlet("/GetSessions")
 public class GetSessionsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
