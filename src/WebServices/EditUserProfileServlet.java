@@ -47,7 +47,7 @@ public class EditUserProfileServlet extends HttpServlet {
 	
 	void editProfile(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
-		int id = Integer.parseInt((String)request.getParameter("idTrainee"));
+		int id = Integer.parseInt((String)request.getParameter("id_trainee"));
 		
 		String name = (String)request.getParameter("name");
 		String mobile = (String)request.getParameter("mobile");

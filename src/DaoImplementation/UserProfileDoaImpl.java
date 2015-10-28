@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+
 import Model.Trainee;
 
 public class UserProfileDoaImpl {
@@ -23,20 +25,20 @@ public class UserProfileDoaImpl {
 		Trainee userProfile = null;
 
 		EntityManager em = this.getMyWayEntityManager();
-
-		Query q = em
-				.createQuery("select u from Trainee u where u.id_trainee="
-						+ id_trainee);
 		
-		Object result = q.getSingleResult();
-		
-		if (result != null){
-		userProfile = (Trainee) result;
-		}else {
+		try {
+			Query q = em
+					.createQuery("select u from Trainee u where u.id_trainee="
+							+ id_trainee);
+			userProfile = (Trainee)q.getSingleResult();
+			
+			return userProfile;
+			
+		} catch (NoResultException e){
 			return null;
 		}
+		
 
-		return userProfile;
 	}
 
 

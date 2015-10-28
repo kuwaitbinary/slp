@@ -53,7 +53,7 @@ public class ForgetPasswordServlet extends HttpServlet {
 	  
 void updatePassword(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
-		int id = Integer.parseInt((String)request.getParameter("idTrainee"));
+		int id = Integer.parseInt((String)request.getParameter("id_trainee"));
 		
 		ForgotPasswordDaoImpl ep = new ForgotPasswordDaoImpl();
 		String newPassword = generateRandomPassword();

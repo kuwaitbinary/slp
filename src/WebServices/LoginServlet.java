@@ -35,10 +35,6 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// to create the DB tables
-//		UserProfileDoaImpl u = new UserProfileDoaImpl();
-//		u.getMyWayEntityManager();
-		// to call the login method below
 		login(request, response);
 	}
 
@@ -55,16 +51,13 @@ public class LoginServlet extends HttpServlet {
 	void login(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 
-		int id_trainee = Integer.parseInt((String) request
-				.getParameter("idTrainee"));
+		int id_trainee = Integer.parseInt((String) request.getParameter("id_trainee"));
 
 		String password = request.getParameter("password");
 
 		UserProfileDoaImpl user = new UserProfileDoaImpl();
 
 		Trainee t = user.retriveUserProfile(id_trainee);
-
-//		String Realpassword = t.getPassword();
 		
 		JSONObject json = new JSONObject();
 
