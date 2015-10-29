@@ -74,6 +74,16 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			boolean isAuthorised = password.equals(t.getPassword());
 			jsonReport.put("flag", String.valueOf(isAuthorised));
+			if (isAuthorised){
+				UserProfileDoaImpl userProfileDoa = new UserProfileDoaImpl();
+				Trainee userProfile = userProfileDoa.retriveUserProfile(id_trainee);
+				jsonReport.put("email", userProfile.getEmail());
+				jsonReport.put("mobile",userProfile.getMobile());
+				jsonReport.put("firstname",userProfile.getFirstname());
+				jsonReport.put("subject",userProfile.getSubject());
+				jsonReport.put("grade",userProfile.getGrade());
+
+			}
 			
 		}
 		
