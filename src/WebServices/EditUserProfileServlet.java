@@ -53,6 +53,8 @@ public class EditUserProfileServlet extends HttpServlet {
 		String mobile = (String)request.getParameter("mobile");
 		String email = (String)request.getParameter("email");
 		String subject = (String)request.getParameter("subject");
+		String grade = (String)request.getParameter("grade");
+		String password = (String)request.getParameter("password");
 		
 		EditProfileDaoImpl ep = new EditProfileDaoImpl();
 		
@@ -64,6 +66,8 @@ public class EditUserProfileServlet extends HttpServlet {
 		t.setMobile(mobile);
 		t.setEmail(email);
 		t.setSubject(subject);
+		t.setGrade(grade);
+		t.setPassword(password);
 		
 		ep.editUserProfile(id, t);
 		
@@ -71,28 +75,14 @@ public class EditUserProfileServlet extends HttpServlet {
 		json.put("message", "success");
 		json.put("result_code", 0);
 		
-		
 		JSONArray result_data = new JSONArray();
-
-		//for(int i = 0;i<favorites.size();i++) {
-			
-			JSONObject jsonReport = new JSONObject();
-			
-			
-			//jsonReport.put("name", f.getName());
-			//jsonReport.put("latitude", f.getLatitude());
-			//jsonReport.put("longitude", f.getLongitude());
-			
-			result_data.add(jsonReport);
-		//}
+		JSONObject jsonReport = new JSONObject();
+		
+		result_data.add(jsonReport);
 		
 		json.put("result_data", result_data);
 		
-		
 		response.getWriter().print(json);
-
-		
-		
 		
 	}
 
