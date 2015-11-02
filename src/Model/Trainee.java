@@ -23,7 +23,7 @@ public class Trainee {
 	
 	@OneToMany(mappedBy = "trainee", cascade = CascadeType.ALL)
 	private List<Reg_Session> regSession;
-
+	
 	public int getId_Trainee() {
 		return id_trainee;
 	}

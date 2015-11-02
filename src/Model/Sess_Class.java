@@ -33,7 +33,8 @@ public class Sess_Class {
 	
 	@OneToMany(mappedBy = "session_class", cascade=CascadeType.ALL)
 	private List<Reg_Session> registeredSessions;
-	
+
+
 	public int getId_class() {
 		return id_class;
 	}
