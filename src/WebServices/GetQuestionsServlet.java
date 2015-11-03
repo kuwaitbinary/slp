@@ -80,7 +80,11 @@ public class GetQuestionsServlet extends HttpServlet {
 		JSONObject json = new JSONObject();
 		json.put("message", "success");
 		json.put("result_code", 0);
-		json.put("sections", Arrays.toString(sections));
+		
+		json.put("first_section", sections[0]);
+		json.put("second_section", sections[1]);
+		json.put("third_section", sections[2]);
+		json.put("fourth_section", sections[3]);
 		
 		//turn list of questions to json array
 		JSONArray result_data = new JSONArray();
