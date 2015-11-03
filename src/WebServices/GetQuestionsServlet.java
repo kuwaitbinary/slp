@@ -2,6 +2,7 @@ package WebServices;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -79,7 +80,7 @@ public class GetQuestionsServlet extends HttpServlet {
 		JSONObject json = new JSONObject();
 		json.put("message", "success");
 		json.put("result_code", 0);
-		json.put("sections", sections.toString());
+		json.put("sections", Arrays.toString(sections));
 		
 		//turn list of questions to json array
 		JSONArray result_data = new JSONArray();
