@@ -12,7 +12,7 @@ import Model.Trainee;
 
 public class UserProfileDoaImpl {
 	
-	public EntityManager getMyWayEntityManager() {
+	public EntityManager getUserProfileEntityManager() {
 		
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("tremble_persistence_unit");
@@ -24,7 +24,7 @@ public class UserProfileDoaImpl {
 	public Trainee retriveUserProfile(int id_trainee) {
 		Trainee userProfile = null;
 
-		EntityManager em = this.getMyWayEntityManager();
+		EntityManager em = this.getUserProfileEntityManager();
 		
 		try {
 			Query q = em

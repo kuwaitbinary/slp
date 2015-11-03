@@ -12,7 +12,7 @@ public class EditProfileDaoImpl {
 	//get the info from the DB,, needs Entity manager method to create it 
 	
 	//method to get the entity manager 
-	public EntityManager getMyWayEntityManager() {
+	public EntityManager getEditProfileEntityManager() {
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("tremble_persistence_unit");
 		return emf.createEntityManager();
@@ -20,7 +20,7 @@ public class EditProfileDaoImpl {
 	
 	public Trainee getTrainee(int id){
 		Trainee trainee;
-		EntityManager em = this.getMyWayEntityManager();
+		EntityManager em = this.getEditProfileEntityManager();
 		
 		Query q = em.createQuery("select t from Trainee t where t.id_Trainee='"+id+"'");
 		trainee = (Trainee) q.getSingleResult();
@@ -32,7 +32,7 @@ public class EditProfileDaoImpl {
 	public void editUserProfile(int id, Trainee t){
 //		Trainee oldTrainee = getTrainee(id);
 		
-		EntityManager em = this.getMyWayEntityManager();
+		EntityManager em = this.getEditProfileEntityManager();
 		Trainee tempTrainee = em.find(Trainee.class, id);
 		tempTrainee.setFirstname(t.getFirstname());
 		tempTrainee.setEmail(t.getEmail());
