@@ -55,13 +55,13 @@ public class EvaluationDaoImpl {
 			sc = (Sess_Class)q.getSingleResult();
 			return sc;
 		}
-		public int getQuestionsCount(){
-			EntityManager em = this.getEvaluationEntityManager();
-			Sess_Class sc;
-			Query q = em.createQuery("select c from Sess_Class c where c.id_class="+c_id);
-			sc = (Sess_Class)q.getSingleResult();
-			return sc;
-			SELECT COUNT(*) FROM table_name;
-		}
+//		public int getQuestionsCount(){
+//			EntityManager em = this.getEvaluationEntityManager();
+//			Sess_Class sc;
+//			Query q = em.createQuery("select c from Sess_Class c where c.id_class="+c_id);
+//			sc = (Sess_Class)q.getSingleResult();
+//			return sc;
+//			SELECT COUNT(*) FROM table_name;
+//		}
 
 }

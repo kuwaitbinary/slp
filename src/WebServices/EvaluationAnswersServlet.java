@@ -54,15 +54,15 @@ public class EvaluationAnswersServlet extends HttpServlet {
 	
 	void setAnswers(HttpServletRequest request, HttpServletResponse response) throws IOException{
 	
-		EvaluationDaoImpl ed = new EvaluationDaoImpl();
-		EditProfileDaoImpl ep = new EditProfileDaoImpl();
-		
-		//Retrieve the trainee info
-		int id_trainee = Integer.parseInt((String)request.getParameter("id_trainee"));
-		Trainee trainee = ep.getTrainee(id_trainee);
-		//retrieve the sess_class
-		int id_class = Integer.parseInt((String)request.getParameter("id_class"));
-		Sess_Class sessionClass = ed.getSessionClass(id_class);
+//		EvaluationDaoImpl ed = new EvaluationDaoImpl();
+//		EditProfileDaoImpl ep = new EditProfileDaoImpl();
+//		
+//		//Retrieve the trainee info
+//		int id_trainee = Integer.parseInt((String)request.getParameter("id_trainee"));
+//		Trainee trainee = ep.getTrainee(id_trainee);
+//		//retrieve the sess_class
+//		int id_class = Integer.parseInt((String)request.getParameter("id_class"));
+//		Sess_Class sessionClass = ed.getSessionClass(id_class);
 		String[] answers = request.getParameterValues("answers[]");
 		
 		System.out.println("answers array: "+answers.length);
