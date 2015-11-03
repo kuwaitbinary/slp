@@ -22,7 +22,7 @@ public class EditProfileDaoImpl {
 		Trainee trainee;
 		EntityManager em = this.getEditProfileEntityManager();
 		
-		Query q = em.createQuery("select t from Trainee t where t.id_Trainee='"+id+"'");
+		Query q = em.createQuery("select t from Trainee t where t.id_Trainee="+id);
 		trainee = (Trainee) q.getSingleResult();
 
 		

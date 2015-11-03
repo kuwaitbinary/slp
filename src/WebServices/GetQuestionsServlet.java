@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
 
-import DaoImplementation.EvaluationDao;
+import DaoImplementation.EvaluationDaoImpl;
 import Model.Question;
 
 /**
@@ -51,8 +51,8 @@ public class GetQuestionsServlet extends HttpServlet {
 	//method retrieves the questions from DB and returns them in response as a String in json structure
 	void getQuestions(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
-		EvaluationDao evaluationDao = new EvaluationDao();
-		List<Question> questions = evaluationDao.getQuestions();
+		EvaluationDaoImpl evaluationDaoImpl = new EvaluationDaoImpl();
+		List<Question> questions = evaluationDaoImpl.getQuestions();
 		
 		int[] sections = {0,0,0,0};
 		

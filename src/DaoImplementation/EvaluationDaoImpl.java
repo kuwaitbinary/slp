@@ -9,8 +9,9 @@ import javax.persistence.Query;
 
 import Model.Answer;
 import Model.Question;
+import Model.Sess_Class;
 
-public class EvaluationDao {
+public class EvaluationDaoImpl {
 	
 	//method to get the entity manager 
 		public EntityManager getEvaluationEntityManager() {
@@ -37,6 +38,30 @@ public class EvaluationDao {
 			em.getTransaction().begin();
 			em.persist(answers);
 			em.getTransaction().commit();
+		}
+		
+		public Question getSingleQuestion(int q_id){
+			EntityManager em = this.getEvaluationEntityManager();
+			Question question;
+			Query q = em.createQuery("select q from Question q where q.id_qst="+q_id);
+			question = (Question)q.getSingleResult();
+			return question;
+		}
+		
+		public Sess_Class getSessionClass(int c_id){
+			EntityManager em = this.getEvaluationEntityManager();
+			Sess_Class sc;
+			Query q = em.createQuery("select c from Sess_Class c where c.id_class="+c_id);
+			sc = (Sess_Class)q.getSingleResult();
+			return sc;
+		}
+		public int getQuestionsCount(){
+			EntityManager em = this.getEvaluationEntityManager();
+			Sess_Class sc;
+			Query q = em.createQuery("select c from Sess_Class c where c.id_class="+c_id);
+			sc = (Sess_Class)q.getSingleResult();
+			return sc;
+			SELECT COUNT(*) FROM table_name;
 		}
 
 }
