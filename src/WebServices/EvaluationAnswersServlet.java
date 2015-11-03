@@ -54,37 +54,32 @@ public class EvaluationAnswersServlet extends HttpServlet {
 	
 	void setAnswers(HttpServletRequest request, HttpServletResponse response) throws IOException{
 	
-//		EvaluationDaoImpl ed = new EvaluationDaoImpl();
-//		EditProfileDaoImpl ep = new EditProfileDaoImpl();
-//		
-//		//Retrieve the trainee info
-//		int id_trainee = Integer.parseInt((String)request.getParameter("id_trainee"));
-//		Trainee trainee = ep.getTrainee(id_trainee);
-//		//retrieve the sess_class
-//		int id_class = Integer.parseInt((String)request.getParameter("id_class"));
-//		Sess_Class sessionClass = ed.getSessionClass(id_class);
-		String[] answers = request.getParameterValues("answers[]");
+		EvaluationDaoImpl ed = new EvaluationDaoImpl();
+		EditProfileDaoImpl ep = new EditProfileDaoImpl();
 		
-		System.out.println("answers array: "+answers.length);
+		//Retrieve the trainee info
+		int id_trainee = Integer.parseInt((String)request.getParameter("id_trainee"));
+		Trainee trainee = ep.getTrainee(id_trainee);
+		//retrieve the sess_class
+		int id_class = Integer.parseInt((String)request.getParameter("id_class"));
+		Sess_Class sessionClass = ed.getSessionClass(id_class);
+		//get answers array from request
+		String[] req_answers = request.getParameterValues("answers[]");
+		List<Answer> answers = new ArrayList<Answer>();
 		
-//		JSONObject jsnobject = JSONObject.parse(request.toString());
-//		List<Answer> answers = new ArrayList<Answer>();
+		System.out.println("answers array: "+req_answers.length);
 		
-//		JSONArray ansArray = (JSONArray) jsnobject.get("answers");
-//		for (int i = 0; i<ansArray.size();i++){
-//			JSONObject tempJSON = (JSONObject) ansArray.get(i);
-//			Answer a = new Answer();
-//			int ansNo = Integer.parseInt((String)tempJSON.get(i));
-//			//dynamically retrieve the question
-//			Question question = ed.getSingleQuestion(i+1);
-//			a.setId_qst(question);
-//			a.setId_class(sessionClass);
-//			a.setId_trainee(trainee);
-//			a.setAnswer(ansNo);
-//			System.out.println("ans val"+i+": "+ ansNo);
-//		}
+		for (int i = 0; i<req_answers.length; i++){
+			Answer a = new Answer();
+			Question question = ed.getSingleQuestion(i+1);
+			a.setId_qst(question);
+			a.setId_class(sessionClass);
+			a.setId_trainee(trainee);
+			a.setAnswer(Integer.parseInt(req_answers[i]));
+			answers.add(a);
+		}
 		
-		
+		ed.setAnswers(answers);
 		
 	}
 
