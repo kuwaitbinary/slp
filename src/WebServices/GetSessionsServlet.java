@@ -72,12 +72,16 @@ public class GetSessionsServlet extends HttpServlet {
 			JSONObject jsonReport = new JSONObject();
 			Reg_Session regSession = Reg_sessions.get(i);
 			Sess_Class sessClass = regSession.getSession_class();
-			Trainer trainer = sessClass.getTrainer();
 			Active_Session activeSession = sessClass.getActiveSession();
+			
+			Trainer trainer = sessClass.getTrainer();
+			
 			Location location = activeSession.getLocation();
 			Zone zone = location.getZone();
+			
 			Wave wave = activeSession.getWave();
 			Course course = wave.getCourse();
+			
 			List<Wave_Date> waveDates = sessionDao.getWaveDates(wave.getId_wave());
 			
 			jsonReport.put("id_session", activeSession.getId_session());
