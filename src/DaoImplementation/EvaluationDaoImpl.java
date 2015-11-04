@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import Model.Active_Session;
 import Model.Answer;
 import Model.Question;
 import Model.Sess_Class;
@@ -61,5 +62,11 @@ public class EvaluationDaoImpl {
 			return sc;
 		}
 
-
+		public Active_Session getActiveSession(int s_id){
+			EntityManager em = this.getEvaluationEntityManager();
+			Active_Session activeSession;
+			Query q = em.createQuery("select s from Active_Session s where s.id_session="+s_id);
+			activeSession = (Active_Session)q.getSingleResult();
+			return activeSession;
+		}
 }

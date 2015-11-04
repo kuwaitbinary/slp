@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DaoImplementation.EditProfileDaoImpl;
 import DaoImplementation.EvaluationDaoImpl;
+import Model.Active_Session;
 import Model.Answer;
 import Model.Question;
 import Model.Sess_Class;
@@ -60,31 +61,40 @@ public class EvaluationAnswersServlet extends HttpServlet {
 		//Retrieve the trainee info
 		int id_trainee = Integer.parseInt((String)request.getParameter("id_trainee"));
 		Trainee trainee = ep.getTrainee(id_trainee);
+		
 		//retrieve the sess_class
 		int id_class = Integer.parseInt((String)request.getParameter("id_class"));
 		Sess_Class sessionClass = ed.getSessionClass(id_class);
+		
+		//retrieve the active session
+		int id_session = Integer.parseInt((String)request.getParameter("id_session"));
+		Active_Session active_Session = ed.getActiveSession(id_session);
+		
 		//get answers array from request
 		String[] req_answers = request.getParameterValues("answers[]");
 		List<Answer> answers = new ArrayList<Answer>();
 		
 		System.out.println("answers array: "+req_answers.length);
-		int i=0;
-		for (i = 0; i<req_answers.length; i++){
+		
+		//loop on the answers from the request and set them in a list array to be sent to set in the DB
+		for (int i = 0; i<req_answers.length; i++){
 			Answer a = new Answer();
 			Question question = ed.getSingleQuestion(i+1);
 			a.setId_qst(question);
 			a.setId_class(sessionClass);
 			a.setId_trainee(trainee);
+			a.setId_session(id_session);
 			a.setAnswer(Integer.parseInt(req_answers[i]));
 			answers.add(a);
 		}
 		
 		ed.setAnswersInDB(answers);
 		
+		//the response with the success message
 		JSONObject json = new JSONObject();
 		json.put("message", "success");
 		json.put("result_code", 0);
-		json.put("result_data", "length: "+req_answers.length+" i = "+i);
+		json.put("result_data", "");
 
 		response.getWriter().print(json);
 		
