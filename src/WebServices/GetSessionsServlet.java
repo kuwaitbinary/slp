@@ -1,6 +1,7 @@
 package WebServices;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -77,16 +78,26 @@ public class GetSessionsServlet extends HttpServlet {
 			Zone zone = location.getZone();
 			Wave wave = activeSession.getWave();
 			Course course = wave.getCourse();
-			Wave_Date waveDate = sessionDao.getWaveDate(wave.getId_wave());
+			List<Wave_Date> waveDates = sessionDao.getWaveDates(wave.getId_wave());
 			
-			
+			jsonReport.put("id_session", activeSession.getId_session());
+			jsonReport.put("id_class", sessClass.getId_class());
 			jsonReport.put("class_name", sessClass.getName());
 			jsonReport.put("course_name", course.getName());
 			jsonReport.put("location_name", location.getLocation());
 			jsonReport.put("location_gps", location.getGps());
 			jsonReport.put("zone", zone.getZone());
 			jsonReport.put("trainer_name", trainer.getFirstname() + trainer.getLastname());
-			jsonReport.put("wave_date", waveDate.getDate().toString());
+			
+			//setting the array of the dates to be sent in the request
+			String dates = waveDates.get(0).getDate().toString();
+			Iterator<Wave_Date> waveDateIterator = waveDates.iterator();
+			int counter=1;
+			while (waveDateIterator.hasNext()) {
+				dates= dates+","+waveDates.get(counter).getDate().toString();
+			}
+
+			jsonReport.put("wave_date", dates);
 			
 			
 			
