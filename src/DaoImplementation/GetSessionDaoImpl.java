@@ -13,6 +13,7 @@ import Model.Course;
 import Model.Location;
 import Model.Reg_Session;
 import Model.Sess_Class;
+import Model.Trainee;
 import Model.Trainer;
 import Model.Wave;
 import Model.Wave_Date;
@@ -55,9 +56,14 @@ public class GetSessionDaoImpl {
 			Query q = em.createQuery("SELECT a FROM Answer a where a.id_session = " + id_session);
 			answers = q.getResultList();
 			boolean flagTrainee = false;
+			System.out.println("Size: "+answers.size());
 			for(int i=0; i<answers.size(); i++){
-				if(answers.get(i).getId_trainee().toString()==id_trainee){
-					System.out.println(answers.get(i).getId_trainee().toString());
+				Answer tempAns = answers.get(i);
+				Trainee tempTrainee = tempAns.getId_trainee();
+				String tempId = tempTrainee.getId_Trainee()+"";
+				//System.out.println("TEMP ANSWERS: "+tempTrainee.getId_Trainee());
+				if(tempId.equals(id_trainee)){
+					
 					flagTrainee = true;
 				}
 			}

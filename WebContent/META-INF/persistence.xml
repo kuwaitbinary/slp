@@ -20,10 +20,10 @@
 
 		<properties>
 			<property name="toplink.jdbc.user" value="root"/>
-			<property name="toplink.jdbc.password" value="root"/>
-			<property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/new_schema"/>
+			<property name="toplink.jdbc.password" value="password"/>
+			<property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/tremble_database"/>
 			<property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<!--  <property name="toplink.ddl-generation" value="create-tables"/> -->
+			<property name="toplink.ddl-generation" value="create-tables"/>
 		</properties>
 	
 	</persistence-unit>
