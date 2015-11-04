@@ -2,6 +2,9 @@ package WebServices;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -98,6 +101,12 @@ public class GetSessionsServlet extends HttpServlet {
 			
 			List<Wave_Date> waveDates = sessionDao.getWaveDates(wave.getId_wave());
 			
+			for(int j=0; j<3; j++){
+				Wave_Date temp = new Wave_Date();
+				temp.setDate(new Date());
+				waveDates.add(temp);
+			}
+			
 			jsonReport.put("id_session", activeSession.getId_session());
 			jsonReport.put("id_class", sessClass.getId_class());
 			jsonReport.put("class_name", sessClass.getName());
@@ -113,6 +122,7 @@ public class GetSessionsServlet extends HttpServlet {
 			}else{
 				String dates = new SimpleDateFormat("dd-MM-yyyy").format(waveDates.get(0).getDate());
 				for (int j= 1; j<waveDates.size(); j++){
+//					dates= dates+","+ new SimpleDateFormat("dd-MM-yyyy").format(addDays(waveDates.get(j).getDate(), 14));
 					dates= dates+","+new SimpleDateFormat("dd-MM-yyyy").format(waveDates.get(j).getDate());
 				}
 				System.out.println(dates);
@@ -126,4 +136,12 @@ public class GetSessionsServlet extends HttpServlet {
 		
 		response.getWriter().print(json);
 	}
+	
+	public static Date addDays(Date date, int days) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, days);
+                 
+        return cal.getTime();
+    }
 }
