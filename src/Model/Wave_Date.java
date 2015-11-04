@@ -2,6 +2,7 @@ package Model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Wave_Date {
 	private int id_wave_date;
 	
 	@ManyToOne
+	@Column(name = "id_wave")
 	private Wave wave;
 	
 	@Temporal(TemporalType.DATE)
