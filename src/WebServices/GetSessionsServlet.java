@@ -65,6 +65,14 @@ public class GetSessionsServlet extends HttpServlet {
 		json.put("message", "success");
 		json.put("result_code", 0);
 		
+		Reg_Session rs = Reg_sessions.get(0);
+		Sess_Class sc = rs.getSession_class();
+		boolean doneFlag = sessionDao.doneEvaluating(id_trainee, sc.getId_class());
+		if (doneFlag){
+			json.put("isEvaluationDone", "true");
+		} else {
+			json.put("isEvaluationDone", "false");
+		}
 		
 		JSONArray result_data = new JSONArray();
 
