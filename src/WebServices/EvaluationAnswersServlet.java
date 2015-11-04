@@ -68,8 +68,8 @@ public class EvaluationAnswersServlet extends HttpServlet {
 		List<Answer> answers = new ArrayList<Answer>();
 		
 		System.out.println("answers array: "+req_answers.length);
-		
-		for (int i = 0; i<req_answers.length; i++){
+		int i=0;
+		for (i = 0; i<req_answers.length; i++){
 			Answer a = new Answer();
 			Question question = ed.getSingleQuestion(i+1);
 			a.setId_qst(question);
@@ -80,6 +80,13 @@ public class EvaluationAnswersServlet extends HttpServlet {
 		}
 		
 		ed.setAnswers(answers);
+		
+		JSONObject json = new JSONObject();
+		json.put("message", "success");
+		json.put("result_code", 0);
+		json.put("result_data", "length: "+req_answers.length+" i = "+i);
+
+		response.getWriter().print(json);
 		
 	}
 

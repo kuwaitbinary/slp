@@ -36,82 +36,82 @@ public class GetSessionDaoImpl {
 		return reg_Session;
 	}
 	
-	public Sess_Class getSess_Class(String id_class)
-	{
-		Sess_Class sess = new Sess_Class();
-		EntityManager em = this.getSessionEntityManager();
-		
-		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
-		sess = (Sess_Class) q.getSingleResult();
-			
-		return sess;
-	}
+//	public Sess_Class getSess_Class(String id_class)
+//	{
+//		Sess_Class sess = new Sess_Class();
+//		EntityManager em = this.getSessionEntityManager();
+//		
+//		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
+//		sess = (Sess_Class) q.getSingleResult();
+//			
+//		return sess;
+//	}
 	
-	public Trainer getTrainer(int id_trainer)
-	{
-		Trainer trainer = new Trainer();
-		EntityManager em = this.getSessionEntityManager();
-		
-		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
-		trainer = (Trainer) q.getSingleResult();
-			
-		return trainer;
-	}
+//	public Trainer getTrainer(int id_trainer)
+//	{
+//		Trainer trainer = new Trainer();
+//		EntityManager em = this.getSessionEntityManager();
+//		
+//		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
+//		trainer = (Trainer) q.getSingleResult();
+//			
+//		return trainer;
+//	}
 	
-	public Active_Session getActive_Session(String id_session)
-	{
-		Active_Session session = new Active_Session();
-		EntityManager em = this.getSessionEntityManager();
-		
-		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
-		session = (Active_Session) q.getSingleResult();
-			
-		return session;
-	}
+//	public Active_Session getActive_Session(String id_session)
+//	{
+//		Active_Session session = new Active_Session();
+//		EntityManager em = this.getSessionEntityManager();
+//		
+//		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
+//		session = (Active_Session) q.getSingleResult();
+//			
+//		return session;
+//	}
 	
-	public Location getLocation(String id_Location)
-	{
-		Location location = new Location();
-		EntityManager em = this.getSessionEntityManager();
-		
-		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
-		location = (Location) q.getSingleResult();
-			
-		return location;
-	}
+//	public Location getLocation(String id_Location)
+//	{
+//		Location location = new Location();
+//		EntityManager em = this.getSessionEntityManager();
+//		
+//		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
+//		location = (Location) q.getSingleResult();
+//			
+//		return location;
+//	}
 	
-	public Zone getZone(int id_Zone)
-	{
-		Zone zone = new Zone();
-		EntityManager em = this.getSessionEntityManager();
-		
-		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
-		zone = (Zone) q.getSingleResult();
-			
-		return zone;
-	}
+//	public Zone getZone(int id_Zone)
+//	{
+//		Zone zone = new Zone();
+//		EntityManager em = this.getSessionEntityManager();
+//		
+//		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
+//		zone = (Zone) q.getSingleResult();
+//			
+//		return zone;
+//	}
 	
-	public Wave getWave(String id_Wave)
-	{
-		Wave wave = new Wave();
-		EntityManager em = this.getSessionEntityManager();
-		
-		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
-		wave = (Wave) q.getSingleResult();
-			
-		return wave;
-	}
+//	public Wave getWave(String id_Wave)
+//	{
+//		Wave wave = new Wave();
+//		EntityManager em = this.getSessionEntityManager();
+//		
+//		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
+//		wave = (Wave) q.getSingleResult();
+//			
+//		return wave;
+//	}
 	
-	public Course getCourse(int id_Course)
-	{
-		Course course = new Course();
-		EntityManager em = this.getSessionEntityManager();
-		
-		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
-		course = (Course) q.getSingleResult();
-			
-		return course;
-	}
+//	public Course getCourse(int id_Course)
+//	{
+//		Course course = new Course();
+//		EntityManager em = this.getSessionEntityManager();
+//		
+//		Query q = em.createQuery("SELECT event FROM Event event where event.status = 'approved' ");
+//		course = (Course) q.getSingleResult();
+//			
+//		return course;
+//	}
 	
 	public Wave_Date getWaveDate(int id_Wave)
 	{
