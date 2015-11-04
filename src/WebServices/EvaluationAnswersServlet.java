@@ -79,7 +79,7 @@ public class EvaluationAnswersServlet extends HttpServlet {
 			answers.add(a);
 		}
 		
-		ed.setAnswers(answers);
+		ed.setAnswersInDB(answers);
 		
 		JSONObject json = new JSONObject();
 		json.put("message", "success");

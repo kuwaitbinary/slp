@@ -32,11 +32,16 @@ public class EvaluationDaoImpl {
 		}
 		
 		//set the list of answers submitted by the user
-		public void setAnswers(List<Answer> answers){
+		public void setAnswersInDB(List<Answer> answers){
 			EntityManager em = this.getEvaluationEntityManager();
 
 			em.getTransaction().begin();
-			em.persist(answers);
+			for (int i=0; i<answers.size(); i++){
+				em.persist(answers.get(i));
+				em.flush();
+	            em.clear();
+			}
+			
 			em.getTransaction().commit();
 		}
 		
