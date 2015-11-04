@@ -90,16 +90,15 @@ public class GetSessionsServlet extends HttpServlet {
 			jsonReport.put("trainer_name", trainer.getFirstname() + trainer.getLastname());
 			
 			//setting the array of the dates to be sent in the request
-			String dates = waveDates.get(0).getDate().toString();
-			Iterator<Wave_Date> waveDateIterator = waveDates.iterator();
-			int counter=1;
-			while (waveDateIterator.hasNext()) {
-				dates= dates+","+waveDates.get(counter).getDate().toString();
+			if (waveDates.size()==0){
+				jsonReport.put("wave_date", "");
+			}else{
+				String dates = waveDates.get(0).getDate().toString();
+				for (int j= 1; j<waveDates.size(); j++){
+					dates= dates+","+waveDates.get(j).getDate().toString();
+				}
+				jsonReport.put("wave_date", dates);
 			}
-
-			jsonReport.put("wave_date", dates);
-			
-			
 			
 			result_data.add(jsonReport);
 		}
