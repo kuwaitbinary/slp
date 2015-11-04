@@ -41,7 +41,7 @@ public class GetSessionDaoImpl {
 		List<Wave_Date> waveDates;
 		EntityManager em = this.getSessionEntityManager();
 		
-		Query q = em.createQuery("SELECT wd FROM Wave_Date wd where wd.wave_id_wave = " + id_Wave);
+		Query q = em.createQuery("SELECT wd FROM Wave_Date wd where wd.id_wave_date = " + id_Wave);
 		waveDates = q.getResultList();
 			
 		return waveDates;
