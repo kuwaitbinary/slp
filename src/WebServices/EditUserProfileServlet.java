@@ -1,6 +1,7 @@
 package WebServices;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,7 +50,8 @@ public class EditUserProfileServlet extends HttpServlet {
 		
 		int id = Integer.parseInt((String)request.getParameter("id_trainee"));
 		
-		String name = (String)request.getParameter("name");
+		String name = URLDecoder.decode((String)request.getParameter("name"), "utf-8");
+		System.out.println(name);
 		String mobile = (String)request.getParameter("mobile");
 		String email = (String)request.getParameter("email");
 		String subject = (String)request.getParameter("subject");
