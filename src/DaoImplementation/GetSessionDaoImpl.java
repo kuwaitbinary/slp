@@ -52,7 +52,7 @@ public class GetSessionDaoImpl {
 		EntityManager em = this.getSessionEntityManager();
 		Answer answer;
 		try {
-			Query q = em.createQuery("SELECT a FROM Answer a where a.id_trainee = " + id_trainee);
+			Query q = em.createQuery("SELECT a FROM Answer a,  Trainee t where t.id_trainee = " + id_trainee);
 			answer = (Answer)q.getSingleResult();
 			return true;
 			
