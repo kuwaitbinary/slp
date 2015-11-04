@@ -19,7 +19,7 @@ public class Wave_Date {
 	private int id_wave_date;
 	
 	@ManyToOne
-	@Column(name = "id_wave")
+//	@Column(name = "id_wave")
 	private Wave wave;
 	
 	@Temporal(TemporalType.DATE)

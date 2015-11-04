@@ -19,7 +19,7 @@ public class Reg_Session {
 	public Sess_Class session_class;
 
 	@ManyToOne
-	@Column(name = "id_trainee")
+//	@Column(name = "id_trainee")
 	public Trainee trainee;
 
 	public int getId_reg_session() {
