@@ -67,7 +67,12 @@ public class GetSessionsServlet extends HttpServlet {
 		
 		Reg_Session rs = Reg_sessions.get(0);
 		Sess_Class sc = rs.getSession_class();
-		boolean doneFlag = sessionDao.doneEvaluating(id_trainee, sc.getId_class());
+		Active_Session as = sc.getActiveSession();
+		
+		//check if the trainee done the evaluation or not
+		boolean doneFlag = sessionDao.doneEvaluating(id_trainee, as.getId_session());
+		System.out.println("BOOLEAN Flag: "+doneFlag);
+		
 		if (doneFlag){
 			json.put("isEvaluationDone", "true");
 		} else {

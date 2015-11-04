@@ -48,13 +48,20 @@ public class GetSessionDaoImpl {
 		return waveDates;
 	}
 	
-	public boolean doneEvaluating(String id_trainee, int id_class){
+	public boolean doneEvaluating(String id_trainee, int id_session){
 		EntityManager em = this.getSessionEntityManager();
-		Answer answer;
+		List<Answer> answers;
 		try {
-			Query q = em.createQuery("SELECT a FROM Answer a,  Trainee t where t.id_trainee = " + id_trainee);
-			answer = (Answer)q.getSingleResult();
-			return true;
+			Query q = em.createQuery("SELECT a FROM Answer a where a.id_session = " + id_session);
+			answers = q.getResultList();
+			boolean flagTrainee = false;
+			for(int i=0; i<answers.size(); i++){
+				if(answers.get(i).getId_trainee().toString()==id_trainee){
+					System.out.println(answers.get(i).getId_trainee().toString());
+					flagTrainee = true;
+				}
+			}
+			return flagTrainee;
 			
 		} catch (Exception e){
 			return false;
