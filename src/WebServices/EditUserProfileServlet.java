@@ -47,11 +47,10 @@ public class EditUserProfileServlet extends HttpServlet {
 	}
 	
 	void editProfile(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		
+		//get all variables from the request and store them in variables
 		int id = Integer.parseInt((String)request.getParameter("id_trainee"));
 		
-		String name = URLDecoder.decode((String)request.getParameter("name"), "utf-8");
-		System.out.println(name);
+		String name = (String)request.getParameter("name");
 		String mobile = (String)request.getParameter("mobile");
 		String email = (String)request.getParameter("email");
 		String subject = (String)request.getParameter("subject");
@@ -60,6 +59,7 @@ public class EditUserProfileServlet extends HttpServlet {
 		
 		EditProfileDaoImpl ep = new EditProfileDaoImpl();
 		
+		//create new Trainee object and set the id of it to match the one being changed then set all new info
 		Trainee t = new Trainee();
 		
 		t.setId_Trainee(id);
@@ -71,6 +71,7 @@ public class EditUserProfileServlet extends HttpServlet {
 		t.setGrade(grade);
 		t.setPassword(password);
 		
+		//set the new in the DB
 		ep.editUserProfile(id, t);
 		
 		JSONObject json = new JSONObject();

@@ -1,6 +1,7 @@
 package WebServices;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
 
@@ -99,7 +100,7 @@ public class GetSessionsServlet extends HttpServlet {
 			}else{
 				String dates = waveDates.get(0).getDate().toString();
 				for (int j= 1; j<waveDates.size(); j++){
-					dates= dates+","+waveDates.get(j).getDate().toString();
+					dates= dates+","+new SimpleDateFormat("ddMMyyyy").format(waveDates.get(j).getDate());
 				}
 				System.out.println(dates);
 				jsonReport.put("wave_date", dates);
