@@ -98,9 +98,9 @@ public class GetSessionsServlet extends HttpServlet {
 			if (waveDates.size()==0){
 				jsonReport.put("wave_date", "");
 			}else{
-				String dates = new SimpleDateFormat("dd/MM/yyyy").format(waveDates.get(0).getDate());
+				String dates = new SimpleDateFormat("dd-MM-yyyy").format(waveDates.get(0).getDate());
 				for (int j= 1; j<waveDates.size(); j++){
-					dates= dates+","+new SimpleDateFormat("dd/MM/yyyy").format(waveDates.get(j).getDate());
+					dates= dates+","+new SimpleDateFormat("dd-MM-yyyy").format(waveDates.get(j).getDate());
 				}
 				System.out.println(dates);
 				jsonReport.put("wave_date", dates);
