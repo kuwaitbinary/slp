@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import Model.Active_Session;
+import Model.Answer;
 import Model.Course;
 import Model.Location;
 import Model.Reg_Session;
@@ -45,6 +46,20 @@ public class GetSessionDaoImpl {
 		waveDates = q.getResultList();
 			
 		return waveDates;
+	}
+	
+	public boolean doneEvaluating(String id_trainee, int id_class){
+		EntityManager em = this.getSessionEntityManager();
+		Answer answer;
+		try {
+			Query q = em.createQuery("SELECT a FROM Answer a where a.id_trainee = " + id_trainee + "AND a.id_class"+id_class);
+			answer = (Answer)q.getSingleResult();
+			return true;
+			
+		} catch (Exception e){
+			return false;
+		}
+		
 	}
 	
 }
