@@ -97,6 +97,7 @@ public class GetSessionsServlet extends HttpServlet {
 				for (int j= 1; j<waveDates.size(); j++){
 					dates= dates+","+waveDates.get(j).getDate().toString();
 				}
+				System.out.println(dates);
 				jsonReport.put("wave_date", dates);
 			}
 			
