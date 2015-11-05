@@ -1,6 +1,7 @@
 package WebServices;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -72,15 +73,6 @@ public class GetSessionsServlet extends HttpServlet {
 		Sess_Class sc = rs.getSession_class();
 		Active_Session as = sc.getActiveSession();
 		
-		//check if the trainee done the evaluation or not
-		boolean doneFlag = sessionDao.doneEvaluating(id_trainee, as.getId_session());
-		System.out.println("BOOLEAN Flag: "+doneFlag);
-		
-		if (doneFlag){
-			json.put("isEvaluationDone", "true");
-		} else {
-			json.put("isEvaluationDone", "false");
-		}
 		
 		JSONArray result_data = new JSONArray();
 
@@ -101,11 +93,29 @@ public class GetSessionsServlet extends HttpServlet {
 			
 			List<Wave_Date> waveDates = sessionDao.getWaveDates(wave.getId_wave());
 			
-			for(int j=0; j<3; j++){
-				Wave_Date temp = new Wave_Date();
-				temp.setDate(new Date());
-				waveDates.add(temp);
-			}
+			Calendar c = Calendar.getInstance();    
+			c.setTime(waveDates.get(0).getDate());
+			c.add(Calendar.DATE, 14);
+			Date date = c.getTime();
+			Wave_Date temp = new Wave_Date();
+			temp.setDate(date);
+			waveDates.add(temp);
+			
+			c.setTime(waveDates.get(1).getDate());
+			c.add(Calendar.DATE, 14);
+			date = c.getTime();
+			temp = new Wave_Date();
+			temp.setDate(date);
+
+			waveDates.add(temp);
+
+			c.setTime(waveDates.get(2).getDate());
+			c.add(Calendar.DATE, 14);
+			date = c.getTime();
+			temp = new Wave_Date();
+			temp.setDate(date);
+			
+			waveDates.add(temp);
 			
 			jsonReport.put("id_session", activeSession.getId_session());
 			jsonReport.put("id_class", sessClass.getId_class());
@@ -129,8 +139,19 @@ public class GetSessionsServlet extends HttpServlet {
 				jsonReport.put("wave_date", dates);
 			}
 			
+			//check if the trainee done the evaluation or not
+			boolean doneFlag = sessionDao.doneEvaluating(id_trainee, as.getId_session());
+			System.out.println("BOOLEAN Flag: "+doneFlag);
+			
+			if (doneFlag){
+				jsonReport.put("isEvaluationDone", "true");
+			} else {
+				jsonReport.put("isEvaluationDone", "false");
+			}
+			
 			result_data.add(jsonReport);
 		}
+		
 		
 		json.put("result_data", result_data);
 		
